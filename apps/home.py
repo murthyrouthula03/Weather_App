@@ -41,7 +41,7 @@ layout = html.Div([
 
         dbc.Row([
             # 2 columns of width 6 with a border
-            dbc.Col(dbc.Card(children=[html.H3(children='Click below to download world weather data',
+            dbc.Col(dbc.Card(children=[html.H3(children='Click below to check the world weather data',
                                                className="text-center"),
                                        dbc.Button("Weather Data",
                                                   href="https://github.com/murthyrouthula03/Weather_App/blob/master/weather_final_data1.csv",
