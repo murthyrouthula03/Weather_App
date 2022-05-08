@@ -1,5 +1,5 @@
 #from dash import dcc
-#import dash
+import dash
 import dash_core_components as dcc
 #from dash import html
 import dash_html_components as html
@@ -7,13 +7,13 @@ from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 
 # must add this line in order for the app to be deployed successfully on Heroku
-#from app import server
+from app import server
 from app import app
 # import all pages in the app
 from apps import world,Europe,Asia,home,Americas,Africa
 
-#app=dash.Dash()
-#server=app.server
+app=dash.Dash()
+server=app.server
 
 # building the navigation bar
 # https://github.com/facultyai/dash-bootstrap-components/blob/master/examples/advanced-component-usage/Navbars.py
