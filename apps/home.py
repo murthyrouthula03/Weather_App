@@ -54,7 +54,7 @@ layout = html.Div([
             dbc.Col(dbc.Card(children=[html.H3(children='Click below for the code of this dashboard',
                                                className="text-center"),
                                        dbc.Button("GitHub",
-                                                  href="https://github.com/JackLinusMcDonnell/DashAppTeaching",
+                                                  href="https://github.com/murthyrouthula03/Weather_App",
                                                   color="primary",
                                                   className="mt-3 btn btn-info"),
                                        ],
