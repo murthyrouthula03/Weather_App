@@ -13,7 +13,7 @@ from app import app
 from apps import world,Europe,Asia,home,Americas,Africa
 
 #app=dash.Dash()
-#server=app.server
+server=app.server
 
 # building the navigation bar
 # https://github.com/facultyai/dash-bootstrap-components/blob/master/examples/advanced-component-usage/Navbars.py
