@@ -76,7 +76,7 @@ layout = html.Div(style={'backgroundColor': colors['background']},children=[
             ],style={'width': '49%', 'display': 'inline-block'}),
             html.Div([
                 html.Label('Select Humidity Range'),
-                dcc.RangeSlider(id='eur_pop_range',
+                dcc.RangeSlider(id='humid_range',
                     min=4,
                     max=100,
                     value=[4,100],
@@ -89,7 +89,7 @@ layout = html.Div(style={'backgroundColor': colors['background']},children=[
                     },
                 ),
                 html.Label('Select climate parameter to display on the Graphs'),
-                dcc.Dropdown(id='eur_y_dropdown',
+                dcc.Dropdown(id='graph_y_dropdown',
                     options=[                    
                         {'label': 'Wind Speed', 'value': 'wind_speed'},
                         {'label': 'Humidity', 'value': 'humidity'},
@@ -124,8 +124,8 @@ layout = html.Div(style={'backgroundColor': colors['background']},children=[
     Output(component_id='geochart3', component_property='figure'),
     Output(component_id='trendline3', component_property='figure')],
     [Input(component_id='country_dropdown', component_property='value'),
-    Input(component_id='eur_pop_range', component_property='value'),
-    Input(component_id='eur_y_dropdown', component_property='value')]
+    Input(component_id='humid_range', component_property='value'),
+    Input(component_id='graph_y_dropdown', component_property='value')]
 )
 def update_graphs(selected_count,erangevalue,eyvar):
     if not (selected_count or erangevalue or eyvar):

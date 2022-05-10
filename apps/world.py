@@ -80,7 +80,7 @@ layout = html.Div(style={'backgroundColor': colors['background']},children=[
         ],style={'width': '49%', 'display': 'inline-block'}),
         html.Div([
             html.Label('Select Precipitation Range'),
-                dcc.RangeSlider(id='pop_range',
+                dcc.RangeSlider(id='precip_range',
                     min=0,
                     max=14.2,
                     value=[0,14.2],
@@ -95,7 +95,7 @@ layout = html.Div(style={'backgroundColor': colors['background']},children=[
         ],style={'width': '49%', 'float': 'right', 'display': 'inline-block'}),
     ]),
     dcc.Graph(
-        id='LifeExpVsGDP'
+        id='LatVsTemp'
     ),
     html.Label('Select Variable to display on Graphs'),
         dcc.Dropdown(id='y_dropdown',
@@ -109,12 +109,12 @@ layout = html.Div(style={'backgroundColor': colors['background']},children=[
     html.Div([
         html.Div([
             dcc.Graph(
-                id='LifeExp'
+                id='ClimateMap'
             )
         ],style={'width': '49%', 'display': 'inline-block'}),
         html.Div([
             dcc.Graph(
-                id='LifeExpOverTime',
+                id='ClimateOverTime',
             )
         ],style={'width': '49%', 'float': 'right', 'display': 'inline-block'}),
     ])
@@ -122,9 +122,9 @@ layout = html.Div(style={'backgroundColor': colors['background']},children=[
 ])
 
 @app.callback(
-    Output(component_id='LifeExpVsGDP', component_property='figure'),
+    Output(component_id='LatVsTemp', component_property='figure'),
     [Input(component_id='cont_dropdown', component_property='value'),
-    Input(component_id='pop_range', component_property='value')]
+    Input(component_id='precip_range', component_property='value')]
 )
 def update_graph(selected_cont,rangevalue):
     if not selected_cont:
@@ -156,10 +156,10 @@ def update_graph(selected_cont,rangevalue):
 
 
 @app.callback(
-    [Output(component_id='LifeExp', component_property='figure'),
-    Output(component_id='LifeExpOverTime', component_property='figure')],
+    [Output(component_id='ClimateMap', component_property='figure'),
+    Output(component_id='ClimateOverTime', component_property='figure')],
     [Input(component_id='cont_dropdown', component_property='value'),
-    Input(component_id='pop_range', component_property='value'),
+    Input(component_id='precip_range', component_property='value'),
     Input(component_id='y_dropdown', component_property='value')]
 )
 def update_map(selected_cont,rangevalue,yvar):
